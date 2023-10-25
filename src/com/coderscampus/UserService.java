@@ -3,6 +3,7 @@ package com.coderscampus;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class UserService {
@@ -31,18 +32,16 @@ public class UserService {
 		return result.toString();
 	}
 
-	public String[] parseText(String input) {
-		return input.split("\\R");
+	public String[] parseText(String input, String change) {
+		return input.split(change);
 	}
-	public String[] parseText1(String input) {
-		return input.split(",");
-	}
-	public String getDataLine() throws IOException {
-		BufferedReader fileReader = null;
-		fileReader = new BufferedReader(new FileReader("data.txt"));
-		String line = fileReader.readLine();
-			
-		fileReader.close();
-		return line.toString();
+	public void  split(String[] data) {
+		int i = 0;
+		while(i <= 3) {
+		String[] again = parseText(data[i], ",");
+		System.out.println(Arrays.toString(again));
+		i++;
+		}
 	}
 }
+

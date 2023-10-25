@@ -15,17 +15,12 @@ public class UserLoginApplication {
 //		String username = userService.input(scanner,"\n" + "Enter your email: " + "\n");
 //		String password = userService.input(scanner,"\n" + "Enter your password: " + "\n");
 		String data = userService.getData();
-		System.out.println(data);
-		String line = userService.getDataLine();
-		// System.out.println(line);
-		String[] array = userService.parseText(data);
-		System.out.println(Arrays.toString(array));
-//		System.out.println(array[2]);
-		String[] again = userService.parseText1(array[2]);
-		System.out.println(Arrays.toString(again));
-		System.out.println(again[0]);
+		
+		String[] array = userService.parseText(data,"\\R");
+		userService.split(array);
+		
 		user.setUsername(array[0]);
-		// System.out.println(user.getUsername());
+		System.out.println(user.getUsername());
 		scanner.close();
 	}
 
