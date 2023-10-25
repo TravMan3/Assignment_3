@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class UserService {
 
-	public String input(Scanner scanner, String displayedMessage) {
+	public String inputLogin(Scanner scanner, String displayedMessage) {
 		System.out.println(displayedMessage);
 		String userInput = scanner.nextLine();
 		return userInput;
@@ -32,9 +32,17 @@ public class UserService {
 	}
 
 	public String[] parseText(String input) {
+		return input.split("\\R");
+	}
+	public String[] parseText1(String input) {
 		return input.split(",");
 	}
-	
-//	public String 
-
+	public String getDataLine() throws IOException {
+		BufferedReader fileReader = null;
+		fileReader = new BufferedReader(new FileReader("data.txt"));
+		String line = fileReader.readLine();
+			
+		fileReader.close();
+		return line.toString();
+	}
 }
