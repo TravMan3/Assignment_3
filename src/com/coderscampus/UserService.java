@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class UserService {
- 
+	
 	public User[] readFile() throws IOException {
 		BufferedReader fileReader = null;
 		try {
@@ -17,7 +17,7 @@ public class UserService {
 			int i = 0;
 			while ((line = fileReader.readLine()) != null){
 				String[] data = line.split(",");
-				System.out.println(Arrays.toString(data));
+				
 				String userName = data[0];
 				String password = data[1];
 				String name = data[2];
@@ -26,15 +26,11 @@ public class UserService {
 				user.setUsername(userName);
 				user.setPassword(password);
 				user.setName(name);
-				System.out.println("Username:" + user.getUsername());
-				System.out.println("password:" + user.getPassword());
-				System.out.println("name:" + user.getName());
 				user1[i] = user;
 				i++;
 			}
 				return user1;
 			} finally {
-				System.out.println("Closing file reader");
 				fileReader.close();
 			
 		}
@@ -48,9 +44,13 @@ public class UserService {
 		return userInput;
 	}
 	
-//	public String compareUserName() {
-//		
-//	}
-//	
+	public String compareUserName(User[] users, String userName, String password) {
+		User user2 = users[1];
+		System.out.println(user2);
+		System.out.println(users[1].getUsername());
+		System.out.println(users[1].getPassword());
+		System.out.println(users[1].getName());
+		return "";
+	}
+	
 }
-

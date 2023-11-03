@@ -2,6 +2,11 @@ package com.coderscampus;
 
 public class User {
 
+	@Override
+	public String toString() {
+		return "User [username=" + username + ", password=" + password + ", name=" + name + "]";
+	}
+
 	private String username;
 	private String password;
 	private String name;
