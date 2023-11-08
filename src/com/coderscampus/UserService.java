@@ -3,7 +3,6 @@ package com.coderscampus;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class UserService {
@@ -37,20 +36,22 @@ public class UserService {
 	}
 	
 	
-	public String loginInput(String displayedMessage) {
-		Scanner scanner = new Scanner(System.in);
+	public String loginInput(String displayedMessage, Scanner scanner) {
 		System.out.println(displayedMessage);
 		String userInput = scanner.nextLine();
 		return userInput;
 	}
 	
-	public String compareUserName(User[] users, String userName, String password) {
-		User user2 = users[1];
-		System.out.println(user2);
-		System.out.println(users[1].getUsername());
-		System.out.println(users[1].getPassword());
-		System.out.println(users[1].getName());
-		return "";
+	public boolean compareUserName(User[] users, String userName, String password) {
+		int i = 0;
+		while (i < users.length) {
+			if(userName.equals(users[i].getUsername()) && password.equals(users[i].getPassword())) {
+				System.out.println("\n" + "Welcome: " + users[i].getName());
+			return true;
+			} 
+		i++;		
+		}
+		return false;
 	}
 	
 }
