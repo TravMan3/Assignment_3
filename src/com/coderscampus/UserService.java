@@ -17,7 +17,7 @@ public class UserService {
 			while ((line = fileReader.readLine()) != null){
 				String[] data = line.split(",");
 				
-				String userName = data[0];
+				String userName = data[0].toLowerCase();
 				String password = data[1];
 				String name = data[2];
 				
@@ -45,7 +45,7 @@ public class UserService {
 	public boolean compareUserName(User[] users, String userName, String password) {
 		int i = 0;
 		while (i < users.length) {
-			if(userName.equals(users[i].getUsername()) && password.equals(users[i].getPassword())) {
+			if(userName.equalsIgnoreCase(users[i].getUsername()) && password.equals(users[i].getPassword())) {
 				System.out.println("\n" + "Welcome: " + users[i].getName());
 			return true;
 			} 
