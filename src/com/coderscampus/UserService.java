@@ -17,7 +17,7 @@ public class UserService {
 			while ((line = fileReader.readLine()) != null){
 				String[] data = line.split(",");
 				
-				String userName = data[0].toLowerCase();
+				String userName = data[0].toLowerCase() ;
 				String password = data[1];
 				String name = data[2];
 				
